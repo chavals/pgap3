@@ -18,12 +18,53 @@
 		<div id="capa"></div>
 		
 		<button id="boton">CAMBIALO</button>
+		
+		<div id="landmark-1" data-landmark-id="1">
+			<form>
+				<label for="email">
+					<b>Email</b>
+					<input type="email" id="email" name="email">
+				</label>
+
+				<label for="comment">
+					<b>Comment</b>
+					<textarea id="comment" name="comment" cols="30" rows="10"></textarea>
+				</label>
+				
+				<input type="submit" value="Save">
+			</form>
+		</div>
+		
+		
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#capa").html("hola");
 				$("#boton").on("click", function (){
 					$("#capa").html("cambiado");
 				});
+				
+				$('form').submit(function(){
+					var landmarkID = $(this).parent().attr('data-landmark-id');
+					var postData = $(this).serialize();
+					
+					$.ajax({
+						type: 'POST',
+						data: postData+'&amp;lid='+landmarkID,
+						url: 'http://www.doblerc.com/prueba/webapp/save.php',
+						success: function(data){
+							console.log(data);
+							alert('Your comment was successfully added');
+						},
+						error: function(){
+							console.log(data);
+							alert('There was an error adding your comment');
+						}
+					});
+					
+					return false;
+				});
+				
+				
 			});
 		</script>
     </body>
