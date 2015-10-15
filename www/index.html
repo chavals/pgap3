@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <title>Interactuando</title>
+		
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body style="margin:0px; padding: 0px;">
+		<a href="web.html">IR A WEB</a>
+		<div id="capa"></div>
+		
+		<button id="boton">CAMBIALO</button>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#capa").html("hola");
+				$("#boton").on("click", function (){
+					$("#capa").html("cambiado");
+				});
+			});
+		</script>
+    </body>
+</html>
