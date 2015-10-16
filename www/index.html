@@ -53,7 +53,9 @@
 						url: 'http://www.doblerc.com/prueba/webapp/save.php',
 						success: function(data){
 							console.log(data);
-							alert('Your comment was successfully added');
+							var dataJson = $.parseJSON(data);
+							console.log(dataJson);
+							alert('Your comment was successfully added' + dataJson);
 						},
 						error: function(){
 							console.log(data);
